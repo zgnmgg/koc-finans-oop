@@ -1,0 +1,35 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: Api Service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/kocfinans
+    username: kocfinans
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 2
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        format_sql: true
+        id:
+          new_generator_mappings: false
+        temp:
+          use_jdbc_metadata_defaults: false
+        jdbc:
+          time_zone: Europe/Istanbul
+  #    show-sql: true
+
+  jackson:
+    time-zone: Europe/Istanbul
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
